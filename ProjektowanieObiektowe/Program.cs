@@ -8,6 +8,7 @@ class Program
     {
         Part1_test.run();
         Console.WriteLine("test");
+        Console.WriteLine("test2");
     }
 }
  
