@@ -7,6 +7,7 @@ class Program
     static void Main(string[] args)
     {
         Part1_test.run();
+        Console.WriteLine("test");
     }
 }
  
