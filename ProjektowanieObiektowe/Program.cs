@@ -8,20 +8,20 @@ class Program
     {
 
 
-        var list = new MyDLL<int>();
+        var heap =  new MyHeap<int>(Comparer<int>.Default);
+        heap.Add(1);
+        heap.Add(2);
+        heap.Add(3);
+        Console.WriteLine(heap);
+        heap.Delete(1);
+        heap.Delete(3);
 
-        Console.WriteLine(list);
-        
-        list.Add(1);
-        list.Add(-22);
-        list.Add(-3);
-        list.Add(12);
+        var it = heap.CreateForwardIterator();
+        MyAlgorithm<int>.ForEach(it,x=>x+10);
 
-        Console.WriteLine(list);
-        
-     
 
-        MyAlgorithm<int>.Print(list, x => x < 0, true);
+
+
         //Console.WriteLine(res);
     }
 }

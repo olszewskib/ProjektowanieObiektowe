@@ -120,3 +120,59 @@ public class DllReverseIterator<T> : IMyIterator<T>
         return cNode.prev != null;
     }
 }
+
+public class HeapForwardIterator<T> : IMyIterator<T>
+{
+
+    private MyHeap<T> heap;
+    private int currentPostition;
+
+    public T Current => heap[currentPostition];
+    
+    public HeapForwardIterator(MyHeap<T> heap)
+    {
+        this.heap = heap;
+        currentPostition = 1;
+    }
+
+    public bool MoveNext()
+    {
+        if (!HasMore()) return false;
+        
+        currentPostition++;
+        return true;
+
+    }
+
+    public bool HasMore()
+    {
+        return currentPostition < heap.Length;
+    }
+}
+
+public class HeapReverseIterator<T> : IMyIterator<T>
+{
+    private MyHeap<T> heap;
+    private int currenntPosition;
+
+    public T Current => heap[currenntPosition];
+    
+    public HeapReverseIterator(MyHeap<T> heap)
+    {
+        this.heap = heap;
+        currenntPosition = heap.Length-1;
+    }
+
+    public bool MoveNext()
+    {
+        if (!HasMore()) return false;
+
+        currenntPosition--;
+        return true;
+    }
+
+    public bool HasMore()
+    {
+        return currenntPosition > 1;
+    }
+}

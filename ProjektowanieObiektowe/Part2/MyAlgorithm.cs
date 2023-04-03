@@ -29,4 +29,14 @@ public static class MyAlgorithm<T>
         if (fun(it.Current)) Console.WriteLine(it.Current);
     }
 
+    public static void ForEach(IMyIterator<T> it, Func<T,T> fun)
+    {
+        while (it.HasMore())
+        {
+            var sth = fun(it.Current);
+            Console.WriteLine(sth);
+            it.MoveNext();
+        }
+        
+    }
 }

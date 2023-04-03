@@ -178,3 +178,93 @@ public class MyDLL<T> : IMyCollections<T>
         return ret;
     }
 }
+
+public class MyHeap<T> : IMyCollections<T>
+{
+    private IComparer<T> comparer;
+    private List<T> storage = new List<T>();
+
+    public int Length => storage.Count;
+
+    public MyHeap(IComparer<T> comparer)
+    {
+        storage.Add(default);
+        this.comparer = comparer;
+    }
+
+    private void DownHeap(int i, int n)
+    {
+        while (true)
+        {
+            if (2 * i > n) break;
+            int k = 2 * i;
+            if (2 * i + 1 <= n)
+            {
+                if (comparer.Compare(storage[2 * i], storage[2 * i + 1]) < 0)
+                {
+                    k = 2 * i + 1;
+                }
+            }
+            else if (comparer.Compare(storage[i], storage[k]) > 0) break;
+
+            (storage[i], storage[k]) = (storage[k], storage[i]);
+            i = k;
+        }
+    }
+
+    private void UpHeap(int i)
+    {
+        while (true)
+        {
+            if (i == 1) break;
+            int k = (i) / 2;
+            if (comparer.Compare(storage[i], storage[k]) < 0) break; 
+            (storage[i], storage[k]) = (storage[k], storage[i]);
+        }
+    }
+
+    public void Add(T item)
+    {
+        storage.Add(item);
+        UpHeap(storage.Count-1);
+        
+    }
+
+    public void Delete(T item)
+    {
+        if (comparer.Compare(item, storage[1]) != 0)
+        {
+            Console.WriteLine("TRYING TO DELETE NODE OTHER THAN ROOT");
+            return;
+        }
+        (storage[1], storage[^1]) = (storage[^1], storage[1]);
+        storage.RemoveAt(storage.Count-1);
+        
+        
+        DownHeap(1,storage.Count-1);
+    }
+
+    public T this[int index]
+    {
+        get => storage[index];
+        set => storage[index] = value;
+    }
+    
+    public IMyIterator<T> CreateForwardIterator()
+    {
+        return new HeapForwardIterator<T>(this);
+    }
+
+    public IMyIterator<T> CreateReverseIterator()
+    {
+        return new HeapReverseIterator<T>(this);
+    }
+
+    public override string ToString()
+    {
+        string val = "";
+        foreach (var el in storage)
+            val += $"{el}";
+        return val;
+    }
+}
