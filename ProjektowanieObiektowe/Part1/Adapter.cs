@@ -169,7 +169,7 @@ public class EpisodesAdapter : IEpisode
         string desc = String.Empty;
          
         desc += $"Title: {this.Title}, Duration: {this.Duration}, ReleaseYear: {this.ReleaseYear}\n";
-        desc += "Director\n";
+        desc += "Director: ";
         desc += this.Director.ToString();
         return desc;
     }
@@ -256,14 +256,15 @@ public class SeriesAdapter : ISeries
         string desc = string.Empty;
          
         desc += $"Title: {this.Title}, Genre: {this.Genre}\n";
-        desc += "Showrunner\n";
+        desc += "Showrunner: ";
         desc += this.Showrunner.ToString();
-        desc += "Episodes\n";
+        desc += "\n";
+        desc += "Episodes: \n";
         foreach (var episode in this.Episodes)
         {
             desc += episode.ToString();
+            desc += "\n";
         }
-
         return desc;
     }
 }

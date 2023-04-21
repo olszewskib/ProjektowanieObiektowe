@@ -6,15 +6,28 @@ public class Part2Test
 {
     public static void Run()
     {
-        var authorHeap = new MyHeap<IMovie>(new Comparers.MovieComparer());
+        var authorHeap = new MyHeap<ISeries>(new Comparers.SeriesComparer());
+        var it = authorHeap.CreateForwardIterator();
         
-        foreach (var movie in DataBase.moviesPairs)
+
+        foreach (var series in DataBase.seriesPairs)
         {
-            var adapter = new MovieAdapter(movie);
+            var adapter = new SeriesAdapter(series);
             authorHeap.Add(adapter);
         }
 
-        Console.WriteLine(authorHeap);
+        Predicate<ISeries> predicate = Test;
         
+        var serie = MyAlgorithm<ISeries>.Find(it,predicate);
+        //Console.WriteLine(i);
+        //Console.WriteLine();
+        Console.WriteLine(serie);
+        
+    }
+
+    public static bool Test(ISeries series)
+    {
+        if (series.Showrunner.Awards == 5 ) return true;
+        return false;
     }
 }
