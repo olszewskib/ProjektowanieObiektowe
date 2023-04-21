@@ -1,4 +1,4 @@
-namespace ProjektowanieObiektowe;
+namespace ProjektowanieObiektowe.Part2;
 
 public interface IMyCollections<T>
 {
@@ -194,33 +194,40 @@ public class MyHeap<T> : IMyCollections<T>
 
     private void DownHeap(int i, int n)
     {
-        while (true)
-        {
-            if (2 * i > n) break;
-            int k = 2 * i;
-            if (2 * i + 1 <= n)
-            {
-                if (comparer.Compare(storage[2 * i], storage[2 * i + 1]) < 0)
-                {
-                    k = 2 * i + 1;
-                }
-            }
-            else if (comparer.Compare(storage[i], storage[k]) > 0) break;
+        var ind = 2 * i;
+        var val = storage[i];
 
-            (storage[i], storage[k]) = (storage[k], storage[i]);
-            i = k;
+        while (2 * i <= n)
+        {
+            if (ind + 1 <= n)
+                if (comparer.Compare(storage[ind + 1], storage[ind]) > 0)
+                    ind += 1;
+
+            if (comparer.Compare(storage[ind], val) > 0)
+            {
+                storage[i] = storage[ind];
+                i = ind;
+                ind = 2 * i;
+            }
+            else
+            {
+                break;
+            }
+
+            storage[i] = val;
         }
     }
 
     private void UpHeap(int i)
     {
-        while (true)
+        var val = storage[i];
+
+        while (i!= 1 && comparer.Compare(val, storage[i / 2]) > 0)
         {
-            if (i == 1) break;
-            int k = (i) / 2;
-            if (comparer.Compare(storage[i], storage[k]) < 0) break; 
-            (storage[i], storage[k]) = (storage[k], storage[i]);
+            storage[i] = storage[i / 2];
+            i /= 2;
         }
+        storage[i] = val;
     }
 
     public void Add(T item)
@@ -262,9 +269,9 @@ public class MyHeap<T> : IMyCollections<T>
 
     public override string ToString()
     {
-        string val = "";
-        foreach (var el in storage)
-            val += $"{el}";
+        string val = String.Empty;
+        for(int i=1; i<storage.Count; i++)
+            val += $"{storage[i]}\n";
         return val;
     }
 }

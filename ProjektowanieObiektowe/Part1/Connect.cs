@@ -1,4 +1,4 @@
-namespace ProjektowanieObiektowe;
+namespace ProjektowanieObiektowe.Part1;
 
 public interface IMovie
 {

@@ -1,4 +1,4 @@
-namespace ProjektowanieObiektowe;
+namespace ProjektowanieObiektowe.Part1;
 
 public class Part1_test
 {
@@ -96,7 +96,7 @@ public class Part1_test
             var check = new MovieAdapter(movie);
             
             if (check.Director.BirthYear > 1970)
-                PrintMovie(check);
+                Print(check);
         }
 
         Console.WriteLine();
@@ -108,7 +108,7 @@ public class Part1_test
             foreach (var episode in check.Episodes)
             {
                 if (episode.Director.BirthYear <= 1970) continue;
-                PrintEpisode(episode);
+                Print(episode);
                 Console.WriteLine();
             }
             
@@ -121,7 +121,7 @@ public class Part1_test
             var check = movie;
             
             if (check.Director.BirthYear > 1970)
-                PrintMovie(check);
+                Print(check);
         }
 
         Console.WriteLine();
@@ -133,41 +133,41 @@ public class Part1_test
             foreach (var episode in check.Episodes)
             {
                 if (episode.Director.BirthYear <= 1970) continue;
-                PrintEpisode(episode);
+                Print(episode);
                 Console.WriteLine();
             }
             
         }
     }
     
-    private static void PrintAuthor(IAuthor author)
+    public static void Print(IAuthor author)
     {
         Console.WriteLine($"name: {author.Name}, surname: {author.Surname}, awards: {author.Awards}, birthyear: {author.BirthYear}");
     }
 
-    private static void PrintMovie(IMovie movie)
+    public static void Print(IMovie movie)
     {
         Console.WriteLine($"title: {movie.Title}, genre: {movie.Genre}, release year: {movie.ReleaseYear}, duration: {movie.Duration}");
         Console.WriteLine("Director:");
-        PrintAuthor(movie.Director);
+        Print(movie.Director);
     }
 
-    private static void PrintEpisode(IEpisode episode)
+    public static void Print(IEpisode episode)
     {
         Console.WriteLine($"Title: {episode.Title}, Duration: {episode.Duration}, ReleaseYear: {episode.ReleaseYear}");
         Console.WriteLine("Director");
-        PrintAuthor(episode.Director);
+        Print(episode.Director);
     }
 
-    private static void PrintSeries(ISeries series)
+    public static void PrintSeries(ISeries series)
     {
         Console.WriteLine($"Title: {series.Title}, Genre: {series.Genre}");
         Console.WriteLine("Showrunner");
-        PrintAuthor(series.Showrunner);
+        Print(series.Showrunner);
         Console.WriteLine("Episodes");
         foreach (var episode in series.Episodes)
         {
-            PrintEpisode(episode);
+            Print(episode);
         }
     }
 }

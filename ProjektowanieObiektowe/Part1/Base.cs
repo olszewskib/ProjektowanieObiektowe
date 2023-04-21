@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ProjektowanieObiektowe
+namespace ProjektowanieObiektowe.Part1
 {
     
 	public class Movie : IMovie
@@ -72,7 +72,7 @@ namespace ProjektowanieObiektowe
 
         public override string ToString()
         {
-            return $"Name: {this.Name}, Surname: {this.Surname}";
+            return $"Name: {this.Name}, Surname: {this.Surname}, Birth year: {this.BirthYear}";
         }
     }
 

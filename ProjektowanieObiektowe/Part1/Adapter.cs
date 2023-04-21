@@ -1,4 +1,4 @@
-namespace ProjektowanieObiektowe;
+namespace ProjektowanieObiektowe.Part1;
 
 public class MovieAdapter : IMovie
 {
@@ -84,6 +84,15 @@ public class MovieAdapter : IMovie
     {
         _element = element;
     }
+
+    public override string ToString()
+    {
+        string desc = String.Empty;
+        desc += $"title: {this.Title}, genre: {this.Genre}, release year: {this.ReleaseYear}, duration: {this.Duration}\n";
+        desc += "Director: ";
+        desc += this.Director.ToString();
+        return desc;
+    }
 }
 
 public class EpisodesAdapter : IEpisode
@@ -153,6 +162,16 @@ public class EpisodesAdapter : IEpisode
     public EpisodesAdapter(EpisodePairs element)
     {
         _element = element;
+    }
+
+    public override string ToString()
+    {
+        string desc = String.Empty;
+         
+        desc += $"Title: {this.Title}, Duration: {this.Duration}, ReleaseYear: {this.ReleaseYear}\n";
+        desc += "Director\n";
+        desc += this.Director.ToString();
+        return desc;
     }
 }
 
@@ -231,6 +250,22 @@ public class SeriesAdapter : ISeries
     {
         _element = element;
     }
+
+    public override string ToString()
+    {
+        string desc = string.Empty;
+         
+        desc += $"Title: {this.Title}, Genre: {this.Genre}\n";
+        desc += "Showrunner\n";
+        desc += this.Showrunner.ToString();
+        desc += "Episodes\n";
+        foreach (var episode in this.Episodes)
+        {
+            desc += episode.ToString();
+        }
+
+        return desc;
+    }
 }
 
 public class AuthorAdapter : IAuthor
@@ -300,5 +335,12 @@ public class AuthorAdapter : IAuthor
     public AuthorAdapter(AuthorPairs element)
     {
         _element = element;
+    }
+
+    public override string ToString()
+    {
+        string desc = String.Empty;
+        desc += $"name: {this.Name}, surname: {this.Surname}, awards: {this.Awards}, birth year: {this.BirthYear}";
+        return desc;
     }
 }
