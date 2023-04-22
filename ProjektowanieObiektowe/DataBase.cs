@@ -1,7 +1,8 @@
 using ProjektowanieObiektowe.Part1;
+using ProjektowanieObiektowe.Part2;
 namespace ProjektowanieObiektowe;
 
-public static class DataBase
+public class DataBase
 {
     // inicjalizacja danych dla reprezentacji bazowej
     public static Author[] authorsBase =
@@ -84,4 +85,34 @@ public static class DataBase
         new SeriesPairs("Breaking Bad", "drama", authorsPairs[3], episodes00),
         new SeriesPairs("The Office US", "horror", authorsPairs[5], episodes11)
     };
+
+    public MyHeap<IMovie> moviesHeap = new MyHeap<IMovie>(new Comparers.MovieComparer());
+    public MyHeap<IAuthor> authorsHeap = new MyHeap<IAuthor>(new Comparers.AuthorComparer());
+    public MyHeap<IEpisode> episodesHeap = new MyHeap<IEpisode>(new Comparers.EpisodeComparer());
+    public MyHeap<ISeries> seriesHeap = new MyHeap<ISeries>(new Comparers.SeriesComparer());
+    
+    public void InitHeaps()
+    {
+        foreach (var movie in DataBase.moviesPairs)
+        {
+            var adapter = new MovieAdapter(movie);
+            moviesHeap.Add(adapter);
+        }
+        foreach (var author in DataBase.authorsPairs)
+        {
+            var adapter = new AuthorAdapter(author);
+            authorsHeap.Add(adapter);
+        }
+        foreach (var episode in DataBase.episodesPairs)
+        {
+            var adapter = new EpisodesAdapter(episode);
+            episodesHeap.Add(adapter);
+        }
+        foreach (var series in DataBase.seriesPairs)
+        {
+            var adapter = new SeriesAdapter(series);
+            seriesHeap.Add(adapter);
+        }
+    }
+    
 }

@@ -2,7 +2,7 @@ using ProjektowanieObiektowe.Part1;
 
 namespace ProjektowanieObiektowe.Part2;
 
-public class Part2Test
+public static class Part2Test
 {
     public static void Run()
     {
