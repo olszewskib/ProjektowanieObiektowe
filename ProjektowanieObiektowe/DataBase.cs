@@ -90,6 +90,7 @@ public class DataBase
     public MyHeap<IAuthor> authorsHeap = new MyHeap<IAuthor>(new Comparers.AuthorComparer());
     public MyHeap<IEpisode> episodesHeap = new MyHeap<IEpisode>(new Comparers.EpisodeComparer());
     public MyHeap<ISeries> seriesHeap = new MyHeap<ISeries>(new Comparers.SeriesComparer());
+    public Dictionary<string, object> Heaps = new Dictionary<string, object>();
     
     public void InitHeaps()
     {
@@ -113,6 +114,11 @@ public class DataBase
             var adapter = new SeriesAdapter(series);
             seriesHeap.Add(adapter);
         }
+        
+        Heaps.Add("movies",moviesHeap);
+        Heaps.Add("authors",authorsHeap);
+        Heaps.Add("series",seriesHeap);
+        Heaps.Add("episodes",episodesHeap);
+        
     }
-    
 }

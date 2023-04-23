@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 
 namespace ProjektowanieObiektowe.Part2;
 
-public static class MyAlgorithm<T>
+public class MyAlgorithm<T>
 {
     public static T Find(IMyIterator<T> it, Predicate<T> fun)
     {
