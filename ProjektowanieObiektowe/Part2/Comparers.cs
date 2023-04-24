@@ -6,10 +6,10 @@ public static class Comparers
 {
     public class MovieComparer : IComparer<IMovie>
     {
-        public int Compare(IMovie x, IMovie y)
+        public int Compare(IMovie? x, IMovie? y)
         {
-            if (x.Duration < y.Duration) return -1;
-            else if (x.Duration > y.Duration) return 1;
+            if (y != null && x != null && x.Duration < y.Duration) return -1;
+            else if (y != null && x != null && x.Duration > y.Duration) return 1;
             else return 0;
         }
     }
