@@ -8,6 +8,7 @@ public class CommandFactory
         new ExitCommand(),
         new FindCommand(),
         new AddCommand(),
+        new HelpCommand(),
     };
 
     public ICommand CreateCommand(string[] args)
