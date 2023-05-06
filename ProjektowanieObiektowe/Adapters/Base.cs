@@ -1,5 +1,4 @@
-﻿using System;
-namespace ProjektowanieObiektowe.Part1
+﻿namespace ProjektowanieObiektowe.Adapters
 {
     
 	public class Movie : IMovie

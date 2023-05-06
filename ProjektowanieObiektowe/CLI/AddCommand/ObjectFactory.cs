@@ -1,6 +1,4 @@
-using System.Reflection.Metadata;
-
-namespace ProjektowanieObiektowe.Part3;
+namespace ProjektowanieObiektowe.CLI.AddCommand;
 
 public abstract class ObjectFactory
 {
@@ -72,7 +70,7 @@ public class AuthorFactory : ObjectFactory
    public override void Add()
    {
       var author = availableAuthorBuilders[Representation].Build(
-         propDictionary["Title"],
+         propDictionary["Name"],
          propDictionary["Surname"],
          int.Parse(propDictionary["BirthYear"]),
          int.Parse(propDictionary["Awards"]));

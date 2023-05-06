@@ -1,6 +1,6 @@
-using ProjektowanieObiektowe.Part1;
+using ProjektowanieObiektowe.Adapters;
 
-namespace ProjektowanieObiektowe.Part2;
+namespace ProjektowanieObiektowe.Collections;
 
 public static class Part2Test
 {

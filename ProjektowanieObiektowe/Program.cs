@@ -1,6 +1,4 @@
-﻿using ProjektowanieObiektowe.Part1;
-using ProjektowanieObiektowe.Part2;
-using ProjektowanieObiektowe.Part3;
+﻿using ProjektowanieObiektowe.CLI;
 
 namespace ProjektowanieObiektowe;
 

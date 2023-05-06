@@ -1,5 +1,6 @@
-using ProjektowanieObiektowe.Part1;
-namespace ProjektowanieObiektowe.Part3;
+using ProjektowanieObiektowe.Adapters;
+
+namespace ProjektowanieObiektowe.CLI.AddCommand;
 
 // Movies
 public abstract class MovieBuilder

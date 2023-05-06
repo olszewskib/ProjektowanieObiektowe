@@ -1,6 +1,6 @@
-using ProjektowanieObiektowe.Part1;
+using ProjektowanieObiektowe.Adapters;
 
-namespace ProjektowanieObiektowe.Part3;
+namespace ProjektowanieObiektowe.CLI.FindCommand;
 
 public class ObjectPropertyDictionaries
 {

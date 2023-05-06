@@ -1,5 +1,6 @@
-using ProjektowanieObiektowe.Part1;
-using ProjektowanieObiektowe.Part2;
+using ProjektowanieObiektowe.Adapters;
+using ProjektowanieObiektowe.Collections;
+
 namespace ProjektowanieObiektowe;
 
 public class DataBase

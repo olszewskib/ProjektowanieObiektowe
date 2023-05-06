@@ -1,6 +1,4 @@
-using System.ComponentModel.Design.Serialization;
-
-namespace ProjektowanieObiektowe.Part3;
+namespace ProjektowanieObiektowe.CLI.AddCommand;
 
 public class AddCommand : ICommand
 {

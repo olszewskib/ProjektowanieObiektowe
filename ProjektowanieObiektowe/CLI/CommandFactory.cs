@@ -1,4 +1,4 @@
-namespace ProjektowanieObiektowe.Part3;
+namespace ProjektowanieObiektowe.CLI;
 
 public class CommandFactory
 {
@@ -6,8 +6,8 @@ public class CommandFactory
     {
         new ListCommand(),
         new ExitCommand(),
-        new FindCommand(),
-        new AddCommand(),
+        new FindCommand.FindCommand(),
+        new AddCommand.AddCommand(),
         new HelpCommand(),
     };
 

@@ -1,6 +1,4 @@
-using System.Runtime.InteropServices;
-
-namespace ProjektowanieObiektowe.Part2;
+namespace ProjektowanieObiektowe.Collections;
 
 public class MyAlgorithm<T>
 {

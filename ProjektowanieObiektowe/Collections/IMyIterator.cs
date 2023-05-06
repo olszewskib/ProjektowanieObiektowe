@@ -1,4 +1,4 @@
-namespace ProjektowanieObiektowe.Part2;
+namespace ProjektowanieObiektowe.Collections;
 
 public interface IMyIterator<out T>
 {

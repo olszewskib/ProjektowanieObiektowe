@@ -1,7 +1,7 @@
-using ProjektowanieObiektowe.Part1;
-using ProjektowanieObiektowe.Part2;
+using ProjektowanieObiektowe.Adapters;
+using ProjektowanieObiektowe.Collections;
 
-namespace ProjektowanieObiektowe.Part3;
+namespace ProjektowanieObiektowe.CLI;
 
 public class ListCommand : ICommand
 {

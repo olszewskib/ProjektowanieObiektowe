@@ -1,8 +1,4 @@
-using System.Reflection;
-using System.Resources;
-using System.Threading.Channels;
-
-namespace ProjektowanieObiektowe.Part3;
+namespace ProjektowanieObiektowe.CLI;
 
 public static class Part3Test
 {

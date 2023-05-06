@@ -1,4 +1,4 @@
-namespace ProjektowanieObiektowe.Part3;
+namespace ProjektowanieObiektowe.CLI;
 
 // responsible for initializing a request (getting the arguments)
 public class Invoker

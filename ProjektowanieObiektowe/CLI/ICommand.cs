@@ -1,4 +1,4 @@
-namespace ProjektowanieObiektowe.Part3;
+namespace ProjektowanieObiektowe.CLI;
 
 public interface ICommand
 {
