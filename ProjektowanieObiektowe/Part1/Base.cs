@@ -10,6 +10,7 @@ namespace ProjektowanieObiektowe.Part1
         public int ReleaseYear { get; set; }
         public int Duration { get; set; }
 
+        public Movie(){}
         public Movie(string title, string genre, Author director, int releseYear, int duraion)
         {
             Title = title;
@@ -56,11 +57,12 @@ namespace ProjektowanieObiektowe.Part1
 
     public class Author : IAuthor
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
         public int BirthYear { get; set; }
         public int Awards { get; set; }
 
+        public Author(){}
         public Author(string name, string surname, int birthYear, int awards)
         {
             Name = name;
@@ -83,6 +85,7 @@ namespace ProjektowanieObiektowe.Part1
         public int ReleaseYear { get; set; }
         public IAuthor Director { get; set; }
 
+        public Episode() {}
         public Episode(string title, int duration, int releaseYear, Author director)
         {
             Title = title;

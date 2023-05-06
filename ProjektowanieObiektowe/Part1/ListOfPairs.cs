@@ -19,6 +19,7 @@ public class AuthorPairs
 {
     public readonly List<Tuple<string, object>> Authors = new();
     
+    public AuthorPairs() {}
     public AuthorPairs(string name, string surname, int birthYear, int awards)
     {
         Authors.Add(new Tuple<string, object>("Name", name));

@@ -2,12 +2,12 @@ namespace ProjektowanieObiektowe.Part3;
 
 public class CommandFactory
 {
-    private string[] args;
-    
     private readonly IEnumerable<ICommand> availableCommands = new ICommand[]
     {
         new ListCommand(),
-        new ExitCommand()
+        new ExitCommand(),
+        new FindCommand(),
+        new AddCommand(),
     };
 
     public ICommand CreateCommand(string[] args)
